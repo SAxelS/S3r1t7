@@ -9,7 +9,7 @@ const char * password = "Xylophone";
 
 
 String FirmwareVer = {
-  "2.3"
+  "2.2"
 };
 #define URL_fw_Version "https://raw.githubusercontent.com/SAxelS/S3r1t7/esp32_ota/bin_version.txt"
 #define URL_fw_Bin "https://raw.githubusercontent.com/SAxelS/S3r1t7/esp32_ota/fw.bin"
@@ -82,7 +82,7 @@ void setup() {
   delay(1000);
   Serial.print("Active firmware version:");
   Serial.println(FirmwareVer);
-  pinMode(2, OUTPUT);
+ /* pinMode(2, OUTPUT);
   delay(100);
   digitalWrite(2,HIGH);
   delay(200);
@@ -91,7 +91,7 @@ void setup() {
   digitalWrite(2,HIGH);
   delay(200);
   digitalWrite(2,LOW);
-  delay(200);
+  delay(200);*/
   connect_wifi();
   
   
@@ -153,6 +153,7 @@ int FirmwareVersionCheck(void) {
   if (client) 
   {
     client -> setCACert(rootCACertificate);
+    Serial.println(rootCACertificate);
 
     // Add a scoping block for HTTPClient https to make sure it is destroyed before WiFiClientSecure *client is 
     HTTPClient https;
